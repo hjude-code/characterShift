@@ -9,12 +9,12 @@
 	color: var(--wp--preset--color--base);
 	background-color: var(--wp--preset--color--contrast);
 	--height:1.5em;
-	display: flex;
-	font-size: clamp(3.5rem, 7.5vw, 12rem);
 	justify-content: start;
 	align-items: center;
 	flex-wrap: wrap;
 	gap:2px;
+	border:0px solid transparent !important;
+	margin: 0px !important;
 }
 
 .wp-block-hjude-character-shift.has-background{

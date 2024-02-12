@@ -12,6 +12,9 @@
       "background": true,
       "text": true,
       "heading": true
+    },
+    "typography": {
+      "fontSize": true
     }
   },
   "attributes": {
