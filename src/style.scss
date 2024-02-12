@@ -10,13 +10,17 @@
 	background-color: var(--wp--preset--color--contrast);
 	--height:1.5em;
 	display: flex;
-	font-size: 7.5vw;
+	font-size: clamp(3.5rem, 7.5vw, 12rem);
 	justify-content: start;
 	align-items: center;
 	flex-wrap: wrap;
 	gap:2px;
-
 }
+
+.wp-block-hjude-character-shift.has-background{
+	padding: 0px !important;
+}
+
 
 .wordBox{
 	height: var(--height);

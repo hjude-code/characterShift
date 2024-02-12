@@ -7,7 +7,12 @@
   "category": "text",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "heading": true
+    }
   },
   "attributes": {
     "textCopy": {
