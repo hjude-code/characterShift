@@ -1,0 +1,49 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-hjude-character-shift {
+	color: var(--wp--preset--color--base);
+	background-color: var(--wp--preset--color--contrast);
+	--height:1.5em;
+	display: flex;
+	font-size: 7.5vw;
+	justify-content: start;
+	align-items: center;
+	flex-wrap: wrap;
+	gap:2px;
+
+}
+
+.wordBox{
+	height: var(--height);
+	overflow: hidden;
+	outline: 2px solid var(--wp--preset--color--base);
+	display: block;
+	flex-grow: 1;
+	padding:0px 0.25em;
+}
+
+.charBox{
+	height: var(--height);
+	display: inline-block;
+	line-height:var(--height);
+	animation:characterShift 2.75s infinite alternate cubic-bezier(.66,.02,.09,1);
+	// transform: translateY(calc(var(--height) *-1));
+}
+
+@keyframes characterShift{
+	from{
+		transform: translateY(0%);
+	}
+	to{
+		transform: translateY(calc(var(--height) *-2));
+	}
+}
+
+.charBox>span{
+	display: block;	
+}
