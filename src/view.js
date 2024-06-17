@@ -1,25 +1,48 @@
-/**
- * Use this file for JavaScript code that you want to run in the front-end
- * on posts/pages that contain this block.
- *
- * When this file is defined as the value of the `viewScript` property
- * in `block.json` it will be enqueued on the front end of the site.
- *
- * Example:
- *
- * ```js
- * {
- *   "viewScript": "file:./view.js"
- * }
- * ```
- *
- * If you're not making any changes to this file because your project doesn't need any
- * JavaScript running in the front-end, then you should delete this file and remove
- * the `viewScript` property from `block.json`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
- */
+let offsetText = document.querySelectorAll('h1.wp-block-hjude-character-shift')
 
-/* eslint-disable no-console */
-console.log( 'Hello World! (from hjude-character-shift block)' );
-/* eslint-enable no-console */
+
+const threshold = (incriment) =>{
+    let steps = []
+    let step = 0
+
+    while(step < 1){
+        steps.push(step)
+        step += incriment
+    }
+
+    return steps
+} 
+
+
+let offsetTextObserver = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            let textOffset = -1
+
+            let fromTop = entry.boundingClientRect.top
+            let fromBottom = window.innerHeight - entry.boundingClientRect.bottom
+
+            if(fromTop > fromBottom){ //bottom intersection
+                textOffset = -2+entry.intersectionRatio
+            }else if(fromBottom >= fromTop){ //top intersection
+                textOffset = -1+(1-entry.intersectionRatio)
+               
+            }
+
+
+            entry.target.style.setProperty('--intersection', textOffset)
+
+            console.log(textOffset)
+        }
+    
+    })
+    
+}, {
+    threshold: threshold(0.001),
+    rootMargin: '0px'
+})
+
+offsetText.forEach(element=>{
+    offsetTextObserver.observe(element)
+})

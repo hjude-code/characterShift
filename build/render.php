@@ -22,7 +22,7 @@ $offsetStep = $attributes['offsetStep'];
 			$chars = str_split($word);
 			echo '<span class="wordBox">';
 			foreach($chars as $charIndex=>$char){
-				echo '<span class="charBox" style="animation-delay:'.$offestWord+$offsetChar.'s;">';
+				echo '<span class="charBox" style="transition-duration:'.($offestWord+$offsetChar)/8 .'s;">';
 				echo '<span>'.$char.'</span>';
 				echo '<span>'.$char.'</span>';
 				echo '<span>'.$char.'</span>';

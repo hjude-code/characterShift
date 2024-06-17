@@ -11,6 +11,7 @@
   color: var(--wp--preset--color--base);
   background-color: var(--wp--preset--color--contrast);
   --height:1.5em;
+  --intersection:-1;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -27,7 +28,7 @@
 .wordBox {
   height: var(--height);
   overflow: hidden;
-  outline: 2px solid var(--wp--preset--color--base);
+  outline: 2px solid;
   display: block;
   flex-grow: 1;
   padding: 0px 0.25em;
@@ -37,7 +38,7 @@
   height: var(--height);
   display: inline-block;
   line-height: var(--height);
-  animation: characterShift 2.75s infinite alternate cubic-bezier(0.66, 0.02, 0.09, 1);
+  transform: translateY(calc(var(--height) * var(--intersection)));
 }
 
 @keyframes characterShift {
