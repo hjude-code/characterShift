@@ -10,7 +10,6 @@
 		"html": false,
 		"color": {
 			"background": true,
-			"text": true,
 			"heading": true
 		},
 		"typography": {

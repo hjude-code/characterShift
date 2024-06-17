@@ -34,7 +34,7 @@ export default function Edit(props) {
 	const {
 		attributes:{textCopy},
 		setAttributes,
-		classname
+		classname="testName"
 	} = props
 
 	const onChangeTextCopy = (newTextCopy) =>{
