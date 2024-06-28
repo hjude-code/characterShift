@@ -15,7 +15,8 @@
     },
     "typography": {
       "fontSize": true
-    }
+    },
+    "align": true
   },
   "attributes": {
     "textCopy": {
