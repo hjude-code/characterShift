@@ -11,7 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
+import {Panel, PanelBody, PanelRow, SelectControl, TextControl} from '@wordpress/components'
+import { useEntityProp, store as coreStore } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,23 +35,56 @@ import './editor.scss';
 export default function Edit(props) {
 
 	const {
-		attributes:{textCopy},
+		attributes:{textCopy, MetaKey, MetaValue},
 		setAttributes,
-		classname="testName"
+		context:{postType, postId, queryId}
 	} = props
+	
+	const post = useSelect((select) => {
+		return select('core').getEntityRecord('postType', 'post', postId);
+	}, [postId]);
+	
+
 
 	const onChangeTextCopy = (newTextCopy) =>{
 		setAttributes( {textCopy: newTextCopy} );
+
+	};
+	
+	const onChangeMetaKey = (newMetaKey) =>{
+		setAttributes( {MetaKey: newMetaKey} );
+
+		console.log(post)
 	};
 
+	const setMetaValue = (newMetaValue) =>{
+		setAttributes({MetaValue: newMetaValue});
+	};
+
+		
 
 	return (
 		<p { ...useBlockProps() }>
+			<InspectorControls>
+				<Panel>
+					<PanelBody>
+						<PanelRow>
+							<TextControl
+							label="MetaField"
+							value={MetaKey}
+							onChange={onChangeMetaKey}
+							/>
+						</PanelRow>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
+
 			<RichText
 				tagName='h1'
 				value={textCopy}
 				onChange={onChangeTextCopy}
 			/>
+			{ MetaValue }
 		</p>
 	);
 }

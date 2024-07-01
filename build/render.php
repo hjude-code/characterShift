@@ -5,6 +5,9 @@
 
  if(isset($_GET['message'])){
 	$message = $_GET['message'];
+ }else if($attributes['MetaKey'] !== ''){
+	$post_id = get_the_ID();
+	$message = get_post_meta($post_id, $attributes['MetaKey'], true);
  }else{
 	$message = $attributes['textCopy'];
  }
@@ -13,6 +16,7 @@ $words = explode(' ', $message);
 $offestWord = 0;
 $offsetChar = 0;
 $offsetStep = $attributes['offsetStep'];
+
 
 
 ?>

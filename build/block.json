@@ -5,6 +5,11 @@
   "version": "0.1.0",
   "title": "Character shift",
   "category": "text",
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId"
+  ],
   "example": {},
   "supports": {
     "html": false,
@@ -32,6 +37,14 @@
     "offsetStep": {
       "type": "number",
       "default": 0.1
+    },
+    "MetaKey": {
+      "type": "string",
+      "default": ""
+    },
+    "MetaValue": {
+      "type": "string",
+      "default": "MetaValueDefault"
     }
   },
   "textdomain": "character-shift",
