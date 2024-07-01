@@ -193,7 +193,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"hjude/character-shift","version":"0.1.0","title":"Character shift","category":"text","example":{},"supports":{"html":false,"color":{"background":true,"text":true,"heading":true},"typography":{"fontSize":true},"align":true},"attributes":{"textCopy":{"type":"string","default":"Hey there you, this is a block"},"offsetStep":{"type":"number","default":0.1}},"textdomain":"character-shift","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"hjude/character-shift","version":"0.1.0","title":"Character shift","category":"text","example":{},"supports":{"html":false,"color":{"background":true,"text":true,"heading":true},"spacing":{"margin":true},"typography":{"fontSize":true},"align":true,"position":{"sticky":true}},"attributes":{"textCopy":{"type":"string","default":"Hey there you, this is a block"},"offsetStep":{"type":"number","default":0.1}},"textdomain":"character-shift","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

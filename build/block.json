@@ -13,10 +13,16 @@
       "text": true,
       "heading": true
     },
+    "spacing": {
+      "margin": true
+    },
     "typography": {
       "fontSize": true
     },
-    "align": true
+    "align": true,
+    "position": {
+      "sticky": true
+    }
   },
   "attributes": {
     "textCopy": {
