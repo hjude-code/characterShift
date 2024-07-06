@@ -38,6 +38,10 @@
       "type": "number",
       "default": 0.1
     },
+    "MetaType": {
+      "type": "string",
+      "default": "title"
+    },
     "MetaKey": {
       "type": "string",
       "default": ""
