@@ -35,7 +35,7 @@ import './editor.scss';
 export default function Edit(props) {
 
 	const {
-		attributes:{textCopy, MetaKey, MetaValue},
+		attributes:{textCopy, MessageType, MetaKey,},
 		setAttributes,
 		context:{postType, postId, queryId}
 	} = props
@@ -48,18 +48,16 @@ export default function Edit(props) {
 
 	const onChangeTextCopy = (newTextCopy) =>{
 		setAttributes( {textCopy: newTextCopy} );
+	};
+	const onChangeMessageType = (newMessageType) =>{
+		setAttributes( {MessageType: newMessageType} );
 
 	};
 	
 	const onChangeMetaKey = (newMetaKey) =>{
 		setAttributes( {MetaKey: newMetaKey} );
-
-		console.log(post)
 	};
 
-	const setMetaValue = (newMetaValue) =>{
-		setAttributes({MetaValue: newMetaValue});
-	};
 
 		
 
@@ -70,9 +68,21 @@ export default function Edit(props) {
 					<PanelBody>
 						<PanelRow>
 							<TextControl
-							label="MetaField"
+							label="Meta Field"
 							value={MetaKey}
 							onChange={onChangeMetaKey}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<SelectControl
+							label="Meta Type"
+							value={MessageType}
+							options={ [
+								{ label: 'Static Message', value: 'Static' },
+								{ label: 'Post Meta', value: 'Meta' },
+								{ label: 'Dynamic Link Message', value: 'Dynamic' },
+							] }
+							onChange={( newMessageType ) => onChangeMessageType( newMessageType )}
 							/>
 						</PanelRow>
 					</PanelBody>
@@ -84,7 +94,6 @@ export default function Edit(props) {
 				value={textCopy}
 				onChange={onChangeTextCopy}
 			/>
-			{ MetaValue }
 		</p>
 	);
 }

@@ -64,8 +64,8 @@ function Edit(props) {
   const {
     attributes: {
       textCopy,
-      MetaKey,
-      MetaValue
+      MessageType,
+      MetaKey
     },
     setAttributes,
     context: {
@@ -82,28 +82,41 @@ function Edit(props) {
       textCopy: newTextCopy
     });
   };
+  const onChangeMessageType = newMessageType => {
+    setAttributes({
+      MessageType: newMessageType
+    });
+  };
   const onChangeMetaKey = newMetaKey => {
     setAttributes({
       MetaKey: newMetaKey
-    });
-    console.log(post);
-  };
-  const setMetaValue = newMetaValue => {
-    setAttributes({
-      MetaValue: newMetaValue
     });
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-    label: "MetaField",
+    label: "Meta Field",
     value: MetaKey,
     onChange: onChangeMetaKey
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: "Meta Type",
+    value: MessageType,
+    options: [{
+      label: 'Static Message',
+      value: 'Static'
+    }, {
+      label: 'Post Meta',
+      value: 'Meta'
+    }, {
+      label: 'Dynamic Link Message',
+      value: 'Dynamic'
+    }],
+    onChange: newMessageType => onChangeMessageType(newMessageType)
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h1",
     value: textCopy,
     onChange: onChangeTextCopy
-  }), MetaValue);
+  }));
 }
 
 /***/ }),
@@ -256,7 +269,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"hjude/character-shift","version":"0.1.0","title":"Character shift","category":"text","usesContext":["postId","postType","queryId"],"example":{},"supports":{"html":false,"color":{"background":true,"text":true,"heading":true},"spacing":{"margin":true},"typography":{"fontSize":true},"align":true,"position":{"sticky":true}},"attributes":{"textCopy":{"type":"string","default":"Hey there you, this is a block"},"offsetStep":{"type":"number","default":0.1},"MetaType":{"type":"string","default":"title"},"MetaKey":{"type":"string","default":""},"MetaValue":{"type":"string","default":"MetaValueDefault"}},"textdomain":"character-shift","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"hjude/character-shift","version":"0.1.0","title":"Character shift","category":"text","usesContext":["postId","postType","queryId"],"example":{},"supports":{"html":false,"color":{"background":true,"text":true,"heading":true},"spacing":{"margin":true},"typography":{"fontSize":true},"align":true,"position":{"sticky":true}},"attributes":{"textCopy":{"type":"string","default":"Hey there you, this is a block"},"offsetStep":{"type":"number","default":0.1},"MessageType":{"type":"string","default":"Static"},"MetaKey":{"type":"string","default":""}},"textdomain":"character-shift","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

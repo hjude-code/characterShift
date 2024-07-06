@@ -3,14 +3,33 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
- if(isset($_GET['message'])){
-	$message = $_GET['message'];
- }else if($attributes['MetaKey'] !== ''){
-	$post_id = get_the_ID();
-	$message = get_post_meta($post_id, $attributes['MetaKey'], true);
- }else{
-	$message = $attributes['textCopy'];
- }
+$MessageType = $attributes['MessageType'];
+$message = $attributes['textCopy'];
+
+if($MessageType == 'Meta'){
+	global $post;
+	if($post){
+		$MetaKey = $attributes['MetaKey'];
+		if($MetaKey !== ''){
+			$MetaValue = $post->$MetaKey;
+			if($MetaValue !== ''){
+				$message = $MetaValue;
+			}
+		}
+	}
+}
+if($MessageType == 'Dynamic'){
+	$message = 'dynamic';
+}
+
+//  if(isset($_GET['message'])){
+// 	$message = $_GET['message'];
+//  }else if($attributes['MetaKey'] !== ''){
+// 	$post_id = get_the_ID();
+// 	$message = get_post_meta($post_id, $attributes['MetaKey'], true);
+//  }else{
+// 	$message = $attributes['textCopy'];
+//  }
 
 $words = explode(' ', $message);
 $offestWord = 0;
