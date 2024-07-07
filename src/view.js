@@ -32,8 +32,6 @@ let offsetTextObserver = new IntersectionObserver((entries)=>{
 
 
             entry.target.style.setProperty('--intersection', textOffset)
-
-            console.log(textOffset)
         }
     
     })

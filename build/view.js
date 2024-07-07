@@ -27,7 +27,6 @@ let offsetTextObserver = new IntersectionObserver(entries => {
         textOffset = -1 + (1 - entry.intersectionRatio);
       }
       entry.target.style.setProperty('--intersection', textOffset);
-      console.log(textOffset);
     }
   });
 }, {
