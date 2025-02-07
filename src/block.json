@@ -33,7 +33,7 @@
 		},
 		"offsetStep":{
 			"type":"number",
-			"default":0.1
+			"default":0.0
 		},
 		"MessageType":{
 			"type":"string",
@@ -42,6 +42,10 @@
 		"MetaKey":{
 			"type":"string",
 			"default":""
+		},
+		"shiftBy":{
+			"type":"string",
+			"default":"word"
 		}
 	},
 	"textdomain": "character-shift",

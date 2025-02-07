@@ -16,7 +16,7 @@
   justify-content: start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2px;
+  gap: 0px;
   border: 0px solid transparent !important;
 }
 

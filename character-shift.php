@@ -23,6 +23,26 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+
+function shiftWord(){
+	foreach($words as $wordIndex=>$word){
+		$chars = str_split($word);
+		echo '<span class="wordBox">';
+		foreach($chars as $charIndex=>$char){
+			echo '<span class="charBox" style="transition-duration:'.($offestWord+$offsetChar)/8 .'s;">';
+			echo '<span>'.$char.'</span>';
+			echo '<span>'.$char.'</span>';
+			echo '<span>'.$char.'</span>';
+			echo '</span>';
+
+			$offsetChar+=$offsetStep;
+		}
+		echo '</span>';
+
+		$offestWord+=$offsetStep;
+	}
+}
+
 function character_shift_character_shift_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
