@@ -27,18 +27,19 @@ let offsetTextObserver = new IntersectionObserver((entries)=>{
                 textOffset = -2+entry.intersectionRatio
             }else if(fromBottom >= fromTop){ //top intersection
                 textOffset = -1+(1-entry.intersectionRatio)
-               
             }
 
 
             entry.target.style.setProperty('--intersection', textOffset)
         }
-    
+
     })
+
+
     
 }, {
-    threshold: threshold(0.001),
-    rootMargin: '0px'
+    threshold: threshold(0.0001),
+    rootMargin: '0px 0px 0px 0px'
 })
 
 offsetText.forEach(element=>{

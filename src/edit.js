@@ -81,6 +81,7 @@ export default function Edit(props) {
 								{ label: 'Static Message', value: 'Static' },
 								{ label: 'Post Meta', value: 'Meta' },
 								{ label: 'Dynamic Link Message', value: 'Dynamic' },
+								{ label: 'Title', value: 'Title' }
 							] }
 							onChange={( newMessageType ) => onChangeMessageType( newMessageType )}
 							/>

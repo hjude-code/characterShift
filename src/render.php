@@ -26,6 +26,13 @@ if($MessageType == 'Dynamic'){
 	 }
 }
 
+if($MessageType == 'Title'){
+	global $post;
+	if($post){
+		$message = get_the_title();
+	}
+}
+
 $words = explode(' ', $message);
 $offestWord = 0;
 $offsetChar = 0;
@@ -33,7 +40,9 @@ $offsetStep = $attributes['offsetStep'];
 
 
 
+
 ?>
+
 <h1 <?php echo get_block_wrapper_attributes(); ?>>
 	<?php
 		foreach($words as $wordIndex=>$word){

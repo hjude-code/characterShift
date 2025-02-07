@@ -30,8 +30,8 @@ let offsetTextObserver = new IntersectionObserver(entries => {
     }
   });
 }, {
-  threshold: threshold(0.001),
-  rootMargin: '0px'
+  threshold: threshold(0.0001),
+  rootMargin: '0px 0px 0px 0px'
 });
 offsetText.forEach(element => {
   offsetTextObserver.observe(element);

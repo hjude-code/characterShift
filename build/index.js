@@ -110,6 +110,9 @@ function Edit(props) {
     }, {
       label: 'Dynamic Link Message',
       value: 'Dynamic'
+    }, {
+      label: 'Title',
+      value: 'Title'
     }],
     onChange: newMessageType => onChangeMessageType(newMessageType)
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
