@@ -35,7 +35,7 @@ import './editor.scss';
 export default function Edit(props) {
 
 	const {
-		attributes:{textCopy, MessageType, MetaKey,},
+		attributes:{textCopy, MessageType, MetaKey, shiftBy},
 		setAttributes,
 		context:{postType, postId, queryId}
 	} = props
@@ -84,6 +84,20 @@ export default function Edit(props) {
 								{ label: 'Title', value: 'Title' }
 							] }
 							onChange={( newMessageType ) => onChangeMessageType( newMessageType )}
+							/>
+						</PanelRow>
+					</PanelBody>
+					<PanelBody>
+						<PanelRow>
+							<SelectControl
+								label="Shift By"
+								value = {shiftBy}
+								options={[
+									{label: 'Word', value: "Word"},
+									{label: 'Character', value: 'Character'}
+								]
+								}
+								onChange={(newShiftBy) => setAttributes({shiftBy: newShiftBy})}
 							/>
 						</PanelRow>
 					</PanelBody>

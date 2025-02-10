@@ -65,7 +65,8 @@ function Edit(props) {
     attributes: {
       textCopy,
       MessageType,
-      MetaKey
+      MetaKey,
+      shiftBy
     },
     setAttributes,
     context: {
@@ -115,6 +116,19 @@ function Edit(props) {
       value: 'Title'
     }],
     onChange: newMessageType => onChangeMessageType(newMessageType)
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: "Shift By",
+    value: shiftBy,
+    options: [{
+      label: 'Word',
+      value: "Word"
+    }, {
+      label: 'Character',
+      value: 'Character'
+    }],
+    onChange: newShiftBy => setAttributes({
+      shiftBy: newShiftBy
+    })
   }))))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h1",
     value: textCopy,
