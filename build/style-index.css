@@ -14,7 +14,8 @@
   justify-content: start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0px;
+  -moz-column-gap: 0.25em;
+       column-gap: 0.25em;
   border: 0px solid transparent !important;
 }
 
@@ -26,7 +27,7 @@
   height: var(--height);
   overflow: hidden;
   display: block;
-  padding: 0px 0.25em;
+  padding: 0px 0px;
 }
 
 .charBox {

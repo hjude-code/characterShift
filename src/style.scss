@@ -13,7 +13,7 @@
 	justify-content: start;
 	align-items: center;
 	flex-wrap: wrap;
-	gap:0px;
+	column-gap:0.25em;
 	border:0px solid transparent !important;
 }
 
@@ -28,7 +28,7 @@
 	// outline: 2px solid;
 	display: block;
 	// flex-grow: 1;
-	padding:0px 0.25em;
+	padding:0px 0px;
 }
 
 .charBox{
