@@ -48,7 +48,7 @@
     },
     "shiftBy": {
       "type": "string",
-      "default": "word"
+      "default": "Word"
     }
   },
   "textdomain": "character-shift",

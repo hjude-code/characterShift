@@ -46,7 +46,7 @@ $offsetStep = $attributes['offsetStep'];
 <h1 <?php echo get_block_wrapper_attributes(); ?>>
 	<?php
 
-		if($attributes['shiftBy'] == 'word'){
+		if($attributes['shiftBy'] == 'Word'){
 			foreach($words as $wordIndex=>$word){
 				$chars = str_split($word);
 				echo '<span class="wordBox">';
