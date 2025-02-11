@@ -12,16 +12,19 @@ const threshold = (incriment) =>{
     return steps
 }
 
+let header = document.querySelector('header')
 function setMarginTop(){
-    let header = document.querySelector('header')
     let headerHeight = header.getBoundingClientRect().height
-
     return headerHeight
 }
-let marginTop = setMarginTop()
-window.addEventListener('resize', ()=>{
+let marginTop = 0
+if(header){
     marginTop = setMarginTop()
-})
+    window.addEventListener('resize', ()=>{
+        marginTop = setMarginTop()
+    })
+}
+
 
 
 function linear(t, tMin, tMax, value1, value2) {
