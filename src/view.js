@@ -12,6 +12,18 @@ const threshold = (incriment) =>{
     return steps
 }
 
+function setMarginTop(){
+    let header = document.querySelector('header')
+    let headerHeight = header.getBoundingClientRect().height
+
+    return headerHeight
+}
+let marginTop = setMarginTop()
+window.addEventListener('resize', ()=>{
+    marginTop = setMarginTop()
+})
+
+
 function linear(t, tMin, tMax, value1, value2) {
     if (t <= tMin) {
       return value1;
@@ -20,7 +32,7 @@ function linear(t, tMin, tMax, value1, value2) {
     } else {
       return value1 + (value2 - value1) * (t - tMin) / (tMax - tMin);
     }
-  }
+  }  
 
 
 function shifter(entry, from, to, order="normal"){
@@ -161,7 +173,7 @@ let offsetTextObserver = new IntersectionObserver((entries)=>{
     
 }, {
     threshold: threshold(0.0001),
-    rootMargin: '-60px 0px -100px 0px'
+    rootMargin: `-${marginTop}px 0px 0px 0px`
 })
 
 offsetText.forEach(element=>{
