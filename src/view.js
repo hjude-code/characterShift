@@ -62,6 +62,81 @@ function shifter(entry, from, to, order="normal"){
     }
 }
 
+function calculateLines(element){
+    let height = element.getBoundingClientRect().height
+    let elementStyles = window.getComputedStyle(element)
+    let fontSize = parseFloat(elementStyles.getPropertyValue('font-size'))
+    let lineHeight = parseFloat(elementStyles.getPropertyValue('--height'))
+    let lineCount =  Math.round( height / (fontSize * lineHeight) )
+
+    let lines = {
+        count:lineCount,
+        height:lineHeight
+    }
+    return lines
+}
+
+function createRule(top){
+    let rule = document.createElement('hr')
+
+    rule.style.setProperty('height', "2px")
+    rule.style.setProperty('background-color', "black")
+    rule.style.setProperty('border', "none")
+    rule.style.setProperty('width', "100%")
+    rule.style.setProperty('position', "absolute")
+    rule.style.setProperty('top', top)
+    rule.style.setProperty('margin', "0px")
+
+    return rule
+}
+
+function addRules(element){
+
+    let lines = calculateLines(element)
+
+    for(i = 0; i < lines.count; i++){
+        let top = `${lines.height * (i+1)}em`
+
+        let rule = createRule(top)
+
+        element.appendChild(rule)
+    }
+    
+}
+
+function updateRules(element){
+
+    let existingRules = element.target.querySelectorAll('hr')
+    let lines = calculateLines(element.target)
+
+    let excessLines = existingRules.length - lines.count 
+
+    if(excessLines > 0){ //remove lines
+        for(let i = 0; i < excessLines; i++){
+            let rule = existingRules[existingRules.length-1]
+            rule.remove()
+        }
+
+    }
+    if(excessLines < 0){ //add lines
+        excessLines = Math.abs(excessLines)
+
+        for(let i = 0; i < excessLines; i++){
+
+            let top = `${lines.height * (existingRules.length + 1)}em`
+
+            let rule = createRule(top)
+
+            element.target.appendChild(rule)
+        }
+    }
+}
+
+let elementResizeObserver = new ResizeObserver((entries)=>{
+    entries.forEach((entry)=>{
+        updateRules(entry)
+    })
+})
 
 
 let offsetTextObserver = new IntersectionObserver((entries)=>{
@@ -91,4 +166,6 @@ let offsetTextObserver = new IntersectionObserver((entries)=>{
 
 offsetText.forEach(element=>{
     offsetTextObserver.observe(element)
+    elementResizeObserver.observe(element)
+    addRules(element)
 })

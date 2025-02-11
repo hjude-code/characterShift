@@ -10,6 +10,7 @@
 .wp-block-hjude-character-shift {
   --height:1.5em;
   --intersection:-1;
+  display: flex;
   justify-content: start;
   align-items: center;
   flex-wrap: wrap;
@@ -24,9 +25,8 @@
 .wordBox {
   height: var(--height);
   overflow: hidden;
-  display: inline-block;
+  display: block;
   padding: 0px 0.25em;
-  border-bottom: 2px solid black;
 }
 
 .charBox {
