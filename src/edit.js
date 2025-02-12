@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, InspectorControls, RichText } from '@wordpress/block-editor';
-import {Panel, PanelBody, PanelRow, SelectControl, TextControl} from '@wordpress/components'
+import {Panel, PanelBody, PanelRow, SelectControl, TextControl, TextareaControl} from '@wordpress/components'
 import { useEntityProp, store as coreStore } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
 
@@ -35,7 +35,7 @@ import './editor.scss';
 export default function Edit(props) {
 
 	const {
-		attributes:{textCopy, MessageType, MetaKey, shiftBy},
+		attributes:{textCopy, MessageType, MetaKey, shiftBy, inlineVariables},
 		setAttributes,
 		context:{postType, postId, queryId}
 	} = props
@@ -84,6 +84,13 @@ export default function Edit(props) {
 								{ label: 'Title', value: 'Title' }
 							] }
 							onChange={( newMessageType ) => onChangeMessageType( newMessageType )}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<TextareaControl
+								label="inline variables"
+								value={inlineVariables}
+								onChange={( newInlineVariables ) => setAttributes({inlineVariables: newInlineVariables})}
 							/>
 						</PanelRow>
 					</PanelBody>

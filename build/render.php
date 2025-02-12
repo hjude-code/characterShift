@@ -33,7 +33,19 @@ if($MessageType == 'Title'){
 	}
 }
 
-$words = explode(' ', $message);
+
+$vars = $attributes['inlineVariables'];
+if($vars !== ""){
+	$formattedMessage = formatVariables($message, $vars);
+
+	$words = explode(' ', $formattedMessage);
+}else{
+	$words = explode(' ', $message);
+}
+
+
+
+
 $offestWord = 0;
 $offsetChar = 0;
 $offsetStep = $attributes['offsetStep'];
@@ -64,6 +76,8 @@ $offsetStep = $attributes['offsetStep'];
 				$offestWord+=$offsetStep;
 			}
 		}
-		
+
+
+
 	?>
 </h1>

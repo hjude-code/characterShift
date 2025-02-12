@@ -66,7 +66,8 @@ function Edit(props) {
       textCopy,
       MessageType,
       MetaKey,
-      shiftBy
+      shiftBy,
+      inlineVariables
     },
     setAttributes,
     context: {
@@ -116,6 +117,12 @@ function Edit(props) {
       value: 'Title'
     }],
     onChange: newMessageType => onChangeMessageType(newMessageType)
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
+    label: "inline variables",
+    value: inlineVariables,
+    onChange: newInlineVariables => setAttributes({
+      inlineVariables: newInlineVariables
+    })
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     label: "Shift By",
     value: shiftBy,
@@ -286,7 +293,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"hjude/character-shift","version":"0.1.0","title":"Character shift","category":"text","usesContext":["postId","postType","queryId"],"example":{},"supports":{"html":false,"color":{"background":true,"text":true,"heading":true},"spacing":{"margin":true},"typography":{"fontSize":true},"align":true,"position":{"sticky":true}},"attributes":{"textCopy":{"type":"string","default":"Hey there you, this is a block"},"offsetStep":{"type":"number","default":0},"MessageType":{"type":"string","default":"Static"},"MetaKey":{"type":"string","default":""},"shiftBy":{"type":"string","default":"Word"}},"textdomain":"character-shift","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"hjude/character-shift","version":"0.1.0","title":"Character shift","category":"text","usesContext":["postId","postType","queryId"],"example":{},"supports":{"html":false,"color":{"background":true,"text":true,"heading":true},"spacing":{"margin":true},"typography":{"fontSize":true},"align":true,"position":{"sticky":true}},"attributes":{"textCopy":{"type":"string","default":"Hey there you, this is a block"},"offsetStep":{"type":"number","default":0},"MessageType":{"type":"string","default":"Static"},"MetaKey":{"type":"string","default":""},"shiftBy":{"type":"string","default":"Word"},"inlineVariables":{"type":"string","default":""}},"textdomain":"character-shift","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

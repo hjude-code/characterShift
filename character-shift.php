@@ -28,3 +28,61 @@ function character_shift_character_shift_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'character_shift_character_shift_block_init' );
+
+
+//render functions
+function cleanString($inputString){
+	$chunks = explode("br", $inputString);
+	$output = [];
+
+	foreach($chunks as $chunk){
+
+		$line = [];
+
+		$words = explode(" ", $chunk);
+
+		foreach($words as $word){
+
+			$trimmedWord = trim($word);
+
+			if(!empty($trimmedWord)){
+				$line[] = $trimmedWord; 
+			}
+
+		}
+
+	}
+}
+
+function formatVariables($inputString, $variablesString){
+	$variables = [];
+	$pairs = explode(", ", $variablesString);
+
+	foreach ($_GET as $key => $value) {
+        $variables[$key] = $value;
+    }
+
+	foreach($pairs as $pair){
+		$keyValue = explode('=', $pair);
+		if(count($keyValue) === 2){
+
+			$key = $keyValue[0];
+			$value = $keyValue[1];
+			$variables[$key] = $value;
+		}
+	}
+
+	foreach ($_GET as $key => $value) {
+        $variables[$key] = $value;
+    }
+
+	$formattedString = $inputString;
+
+	foreach($variables as $key => $value){
+		$placeholder = "{" . $key . "}";
+		$formattedString = str_replace($placeholder, $value, $formattedString);
+	}
+
+	return $formattedString;
+
+}

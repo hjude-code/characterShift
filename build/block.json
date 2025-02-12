@@ -49,6 +49,10 @@
     "shiftBy": {
       "type": "string",
       "default": "Word"
+    },
+    "inlineVariables": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "character-shift",
