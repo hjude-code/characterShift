@@ -21,8 +21,6 @@ if($MessageType == 'Meta'){
 if($MessageType == 'Dynamic'){
 	if(isset($_GET[$MetaKey])){
 		$message = $_GET[$MetaKey];
-	 }else{
-		$message = 'dynamic';
 	 }
 }
 
